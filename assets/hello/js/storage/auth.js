@@ -2,17 +2,15 @@ export default {
   actions: {
     async login({ dispatch, commit }, { username, password }) {
       try {
-        await axios
+        const response = await axios
           .post("/auth/", {
             username,
             password,
           })
-          .then((response) => {
-            commit("setInfo", {
-              username: username,
-            });
-            localStorage.setItem("user-token", response.data.token);
+          commit("setInfo", {
+            username: username,
           });
+          localStorage.setItem("user-token", response.data.token);
       } catch (e) {
         commit("setError", e);
         localStorage.removeItem("user-token");

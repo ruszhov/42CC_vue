@@ -7,10 +7,6 @@ export default function (value) {
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
       this.age--;
     }
-    if (age >= 0 && age <= 100) {
-      return true;
-    } else {
-      return false;
-    }
+    return 0 <= age && age <= 100
   }
 }

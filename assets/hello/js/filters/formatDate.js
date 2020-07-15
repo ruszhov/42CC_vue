@@ -1,5 +1,6 @@
+import strftime from "./strftime.js"
 export default function (value) {
   if (value) {
-    return moment(String(value)).format("MMMM D, YYYY, HH:MM a");
+    return strftime('%B %e, %G, %l:%M %P', value)
   }
 }

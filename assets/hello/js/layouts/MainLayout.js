@@ -21,13 +21,13 @@ export default {
           </v-elseform>
         </div>
       </nav>
-      <router-view></router-view>
+      <router-view></router-view>      
     </div>
   `,
   methods: {
     async logout() {
       await this.$store.dispatch("logout");
-      this.$router.push("/login?message=logout");
+      this.$router.push("/login");
     },
   },
   async mounted() {

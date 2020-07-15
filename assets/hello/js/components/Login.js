@@ -40,16 +40,22 @@ export default {
                   >The field must be at least 5 characters long. Now is {{password.length}}</div>
               </div>
               <button class="btn btn-primary" type="submit">Login</button>
+              <p>
+                <div v-if="error" class="alert alert-danger" role="alert">
+                  {{error}}
+                </div>
+              </p>              
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </div>    
   `,
   data() {
     return {
       username: "",
       password: "",
+      error: null
     };
   },
   validations: {
@@ -68,9 +74,10 @@ export default {
       };
       try {
         await this.$store.dispatch("login", formData);
-        console.log(this.$route.query.next);
         this.$router.push(this.$route.query.next || "/");
-      } catch (e) {}
+      } catch (e) {
+        this.error = e
+      }
     },
   },
 };

@@ -5,7 +5,7 @@ export default {
   template: `
     <div>
       <component :is="layout">
-        <router-view></router-view>
+      
       </component>
     </div>
   `,
